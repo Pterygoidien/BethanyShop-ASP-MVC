@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BethaniePieShop.Models.Pie>
+﻿@model BethaniePieShop.ViewModels.PieListViewModel
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,14 +10,14 @@
 
 <body>
 
-    <h1>@ViewBag.CurrentCategory</h1>
-    @foreach (var pie in Model)
+    <h1>@Model.CurrentCategory</h1>
+    @foreach (var pie in Model.Pies)
     {
-        <div>
-            <h3>@pie.Name</h3>
-            <h4>@pie.Price</h4>
-            <h4> @pie.ShortDescription</h4>
-        </div>
+            <div>
+                <h3>@pie.Name</h3>
+                <h4>@pie.Price</h4>
+                <h4> @pie.ShortDescription</h4>
+            </div>
     }
 
 </body>
