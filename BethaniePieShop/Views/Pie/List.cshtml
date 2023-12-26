@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BethaniePieShop.Models.Pie>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethany's Pie Shop</title>
+</head>
+
+<body>
+
+    <h1>@ViewBag.CurrentCategory</h1>
+    @foreach (var pie in Model)
+    {
+        <div>
+            <h3>@pie.Name</h3>
+            <h4>@pie.Price</h4>
+            <h4>@pie.ShortDescription</h4>
+        </div>
+    }
+
+</body>
+
+</html>
