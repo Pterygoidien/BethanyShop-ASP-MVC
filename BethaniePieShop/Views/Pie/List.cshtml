@@ -1,25 +1,11 @@
-﻿@model BethaniePieShop.ViewModels.PieListViewModel
-<!DOCTYPE html>
-<html lang="en">
+﻿@model PieListViewModel
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bethany's Pie Shop</title>
-</head>
-
-<body>
-
-    <h1>@Model.CurrentCategory</h1>
-    @foreach (var pie in Model.Pies)
-    {
-            <div>
-                <h3>@pie.Name</h3>
-                <h4>@pie.Price</h4>
-                <h4> @pie.ShortDescription</h4>
-            </div>
-    }
-
-</body>
-
-</html>
+<h1>@Model.CurrentCategory</h1>
+@foreach (var pie in Model.Pies)
+{
+        <div>
+            <h3>@pie.Name</h3>
+            <h4>@pie.Price</h4>
+            <h4> @pie.ShortDescription</h4>
+        </div>
+}
