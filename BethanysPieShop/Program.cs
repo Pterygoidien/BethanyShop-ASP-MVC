@@ -11,6 +11,7 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 // Register DBContext through dependency injection
 builder.Services.AddDbContext<BethanysPieShopDbContext>(options =>
@@ -33,6 +34,8 @@ if (app.Environment.IsDevelopment())
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 DbInitializer.Seed(app);
 
