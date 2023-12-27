@@ -1,6 +1,6 @@
-using BethaniePieShop.Models;
+using BethanysPieShop.Models;
 
-namespace BethaniePieShop.ViewModels;
+namespace BethanysPieShop.ViewModels;
 
 public class HomeViewModel
 {

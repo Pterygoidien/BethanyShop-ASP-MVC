@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace BethaniePieShop.Models;
+namespace BethanysPieShop.Models;
 
-public class BethaniePieShopDbContext : DbContext
+public class BethanysPieShopDbContext : DbContext
 {
-    public BethaniePieShopDbContext(DbContextOptions<BethaniePieShopDbContext> options) : base(options)
+    public BethanysPieShopDbContext(DbContextOptions<BethanysPieShopDbContext> options) : base(options)
     {
     }
 

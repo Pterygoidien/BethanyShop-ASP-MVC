@@ -1,8 +1,8 @@
-using BethaniePieShop.Models;
-using BethaniePieShop.ViewModels;
+using BethanysPieShop.Models;
+using BethanysPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BethaniePieShop.Controllers;
+namespace BethanysPieShop.Controllers;
 
 public class HomeController : Controller
 {

@@ -1,15 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace BethaniePieShop.Models;
+namespace BethanysPieShop.Models;
 
 public class ShoppingCart : IShoppingCart
 {
-    private BethaniePieShopDbContext _bethaniePieShopDbContext;
+    private BethanysPieShopDbContext _BethanysPieShopDbContext;
     public string? ShoppingCartId { get; set; }
 
-    private ShoppingCart(BethaniePieShopDbContext bethaniePieShopDbContext)
+    private ShoppingCart(BethanysPieShopDbContext BethanysPieShopDbContext)
     {
-        this._bethaniePieShopDbContext = bethaniePieShopDbContext;
+        this._BethanysPieShopDbContext = BethanysPieShopDbContext;
     }
 
     public List<ShoppingCartItem> ShoppingCartItems { get; set; } = default!;
@@ -18,7 +18,7 @@ public class ShoppingCart : IShoppingCart
     {
         ISession? session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext?.Session;
 
-        BethaniePieShopDbContext context = services.GetService<BethaniePieShopDbContext>() ?? throw new Exception("Error initializing database context");
+        BethanysPieShopDbContext context = services.GetService<BethanysPieShopDbContext>() ?? throw new Exception("Error initializing database context");
 
         string cartId = session?.GetString("CartId") ?? Guid.NewGuid().ToString();
 
@@ -29,7 +29,7 @@ public class ShoppingCart : IShoppingCart
 
     public void AddToCart(Pie pie)
     {
-        var shoppingCartItem = _bethaniePieShopDbContext.ShoppingCartItems.SingleOrDefault(
+        var shoppingCartItem = _BethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
             s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId
         );
 
@@ -42,40 +42,40 @@ public class ShoppingCart : IShoppingCart
                 Amount = 1
             };
 
-            _bethaniePieShopDbContext.ShoppingCartItems.Add(shoppingCartItem);
+            _BethanysPieShopDbContext.ShoppingCartItems.Add(shoppingCartItem);
         }
         else
         {
             shoppingCartItem.Amount++;
         }
 
-        _bethaniePieShopDbContext.SaveChanges();
+        _BethanysPieShopDbContext.SaveChanges();
     }
 
     public void ClearCart()
     {
-        var cartItems = _bethaniePieShopDbContext.ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId);
+        var cartItems = _BethanysPieShopDbContext.ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId);
 
-        _bethaniePieShopDbContext.ShoppingCartItems.RemoveRange(cartItems); // RemoveRange() is an extension method from Microsoft.EntityFrameworkCore, it removes all the items in the cart
+        _BethanysPieShopDbContext.ShoppingCartItems.RemoveRange(cartItems); // RemoveRange() is an extension method from Microsoft.EntityFrameworkCore, it removes all the items in the cart
 
-        _bethaniePieShopDbContext.SaveChanges();
+        _BethanysPieShopDbContext.SaveChanges();
     }
 
     public List<ShoppingCartItem> GetShoppingCartItems()
     {
-        return ShoppingCartItems ??= _bethaniePieShopDbContext.ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId).Include(s => s.Pie).ToList();
+        return ShoppingCartItems ??= _BethanysPieShopDbContext.ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId).Include(s => s.Pie).ToList();
 
     }
 
     public decimal GetShoppingCartTotal()
     {
-        var total = _bethaniePieShopDbContext.ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId).Select(cart => cart.Pie.Price * cart.Amount).Sum();
+        var total = _BethanysPieShopDbContext.ShoppingCartItems.Where(cart => cart.ShoppingCartId == ShoppingCartId).Select(cart => cart.Pie.Price * cart.Amount).Sum();
         return total;
     }
 
     public int RemoveFromCart(Pie pie)
     {
-        var shoppingCartItem = _bethaniePieShopDbContext.ShoppingCartItems.SingleOrDefault(
+        var shoppingCartItem = _BethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
             s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId
         );
 
@@ -90,11 +90,11 @@ public class ShoppingCart : IShoppingCart
             }
             else
             {
-                _bethaniePieShopDbContext.ShoppingCartItems.Remove(shoppingCartItem);
+                _BethanysPieShopDbContext.ShoppingCartItems.Remove(shoppingCartItem);
             }
         }
 
-        _bethaniePieShopDbContext.SaveChanges();
+        _BethanysPieShopDbContext.SaveChanges();
 
         return localAmount;
     }

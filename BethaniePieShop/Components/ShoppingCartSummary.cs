@@ -1,9 +1,9 @@
 
-using BethaniePieShop.Models;
-using BethaniePieShop.ViewModels;
+using BethanysPieShop.Models;
+using BethanysPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BethaniePieShop.Components;
+namespace BethanysPieShop.Components;
 
 public class ShoppingCartSummary : ViewComponent
 {

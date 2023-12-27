@@ -1,5 +1,5 @@
 
-namespace BethaniePieShop.Models;
+namespace BethanysPieShop.Models;
 
 public class MockPieRepository : IPieRepository
 {

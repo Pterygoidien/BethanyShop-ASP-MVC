@@ -1,5 +1,5 @@
-using BethaniePieShop.Models;
-namespace BethaniePieShop.ViewModels;
+using BethanysPieShop.Models;
+namespace BethanysPieShop.ViewModels;
 
 public class PieListViewModel
 {

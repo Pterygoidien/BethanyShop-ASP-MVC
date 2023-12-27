@@ -1,11 +1,11 @@
-using BethaniePieShop.Models;
+using BethanysPieShop.Models;
 
-namespace BethaniePieShop.Models;
+namespace BethanysPieShop.Models;
 public static class DbInitializer
 {
     public static void Seed(IApplicationBuilder applicationBuilder)
     {
-        BethaniePieShopDbContext context = applicationBuilder.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BethaniePieShopDbContext>();
+        BethanysPieShopDbContext context = applicationBuilder.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BethanysPieShopDbContext>();
 
         if (!context.Categories.Any())
         {

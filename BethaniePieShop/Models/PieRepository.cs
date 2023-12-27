@@ -2,29 +2,29 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace BethaniePieShop.Models;
+namespace BethanysPieShop.Models;
 
 public class PieRepository : IPieRepository
 {
-    private readonly BethaniePieShopDbContext _bethaniePieShopDbContext;
+    private readonly BethanysPieShopDbContext _BethanysPieShopDbContext;
 
-    public PieRepository(BethaniePieShopDbContext bethaniePieShopDbContext)
+    public PieRepository(BethanysPieShopDbContext BethanysPieShopDbContext)
     {
-        this._bethaniePieShopDbContext = bethaniePieShopDbContext;
+        this._BethanysPieShopDbContext = BethanysPieShopDbContext;
     }
 
-    public IEnumerable<Pie> AllPies => _bethaniePieShopDbContext.Pies.Include(c => c.Category);
+    public IEnumerable<Pie> AllPies => _BethanysPieShopDbContext.Pies.Include(c => c.Category);
 
     public IEnumerable<Pie> PiesOfTheWeek
     {
         get
         {
-            return _bethaniePieShopDbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
+            return _BethanysPieShopDbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
         }
     }
 
     public Pie? GetPieById(int pieId)
     {
-        return _bethaniePieShopDbContext.Pies.FirstOrDefault(p => p.PieId == pieId);
+        return _BethanysPieShopDbContext.Pies.FirstOrDefault(p => p.PieId == pieId);
     }
 }

@@ -1,5 +1,4 @@
-using BethaniePieShop.Models;
-using BethaniePieShop.Models;
+using BethanysPieShop.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +12,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 
 // Register DBContext through dependency injection
-builder.Services.AddDbContext<BethaniePieShopDbContext>(options =>
+builder.Services.AddDbContext<BethanysPieShopDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"]
     ));

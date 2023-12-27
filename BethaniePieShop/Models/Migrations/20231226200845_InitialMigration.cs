@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BethaniePieShop.Models.Migrations
+namespace BethanysPieShop.Models.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration
