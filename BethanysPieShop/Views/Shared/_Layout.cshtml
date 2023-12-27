@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bethanys's Pie SHop</title>
     <link href='https://fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
-    <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link href="~/css/site.css" rel="stylesheet" />
     <base href="/" />
 
@@ -32,11 +31,9 @@
 
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <vc:category-menu></vc:category-menu>
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Pie" asp-action="List">Pies</a>
+                                <a asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a>
                             </li>
                         </ul>
 
