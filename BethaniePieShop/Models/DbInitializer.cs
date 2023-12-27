@@ -1,6 +1,6 @@
 using BethaniePieShop.Models;
 
-namespace BethanysPieShop.Models;
+namespace BethaniePieShop.Models;
 public static class DbInitializer
 {
     public static void Seed(IApplicationBuilder applicationBuilder)
